@@ -1,7 +1,5 @@
 <style>
-    #gris{
-        width: 100%;
-        height: 140px;
+    footer{
         background-color: grey;
     }
     #logo1{
@@ -19,7 +17,6 @@
     #foot{
         position: relative;
         height: 40px;
-        width: 1200px;
         text-align: center;
         table-layout: fixed;
     }
@@ -28,6 +25,13 @@
         margin-top: -30px;
         margin-left: 110px;
     }
+    #inst{
+        width: 5%;
+        margin-top: -36px;
+    }
+   td{
+    width: 550px;
+   }
 </style>
 
 <footer>

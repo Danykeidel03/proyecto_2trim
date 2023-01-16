@@ -1,18 +1,14 @@
 <style>
-    #blanco{
-        width: 100%;
-        height: 70px;
-        background-color: white;
-    }
     #foot1{
         height: 10px;
-        position: relative;
+        position: absolute;
         float: left;
         margin-left: 200px;
         margin-top: -70px;
+        width: 100%;
     }
     #tab1{
-        position: relative;
+        position: absolute;
         /* margin-left: -20px; */
     }
     #tab1 p{
