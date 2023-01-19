@@ -22,10 +22,18 @@
         width: 100%;
         height: 900px;
 }
-    #letras_img{
+#letras_img{
     position: absolute;
-    margin-top: -30%;
-    left: 5%;
+    margin-top: -450px;
+    left: 2%;
+    color: white;
+    font: sans-serif;
+}
+
+#letras_img1{
+    position: absolute;
+    margin-top: -650px;
+    left: 2%;
     color: white;
     font: sans-serif;
 }
@@ -34,11 +42,11 @@
     position: absolute;
     top: 70%;
     left: 20%;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 #titulo {
-    font-size: 90px;
+    font-size: 70px;
 }
 body{
     margin-top: 0px;
@@ -46,12 +54,6 @@ body{
     margin-right: 0px;
     margin-bottom: 0px;
 }
-
-/* img{
-    box-sizing: border-box;
-    margin: 0px
-} */
-
 
 li {
     font-size: 30px;
@@ -114,7 +116,7 @@ li {
 
 
 
-p,h1{
+p,h1,h4,a{
     font-family: 'Cinzel', serif;
 }
 
@@ -219,11 +221,51 @@ p,h1{
 }
     
 html, body, footer, header {
-     min-width: 1300px;
+     min-width: 1700px;
+     max-width: 5000px;
 }
-    
 
+.contenedorRutas{
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+    margin-bottom: 100px;
+}
 
+.contenedorRutas .ruta {
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.contenedorRutas .ruta:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0 , 0, 0.8);
+}
+
+.contenedor .ruta img {
+    width: 330px;
+    height: 220px;
+}
+
+#logo2{
+        color: white;
+        font-size: 25px;
+        margin-top: -35px;
+        position: relative;
+        margin-left: 30px;
+        width: 40px;
+    }
 </style>
 <body>
 
@@ -232,7 +274,7 @@ html, body, footer, header {
         ?>
 
         <!-- Imagen de fono y al principio de la pagina -->
-        <img src="img/inicio2.png" id="foto">
+        <img src="img/inicio3.png" id="foto">
 
         <!-- letras blancas dentro de la imagen -->
         <div id="letras_img">
@@ -303,12 +345,42 @@ html, body, footer, header {
             
             </div>
 
+                <img src="img/inicio4.png" width="100%" height="700px">
+                <div id="letras_img1">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-tencent-qq" viewBox="0 0 16 16">
+                        <path d="M6.048 3.323c.022.277-.13.523-.338.55-.21.026-.397-.176-.419-.453-.022-.277.13-.523.338-.55.21-.026.397.176.42.453Zm2.265-.24c-.603-.146-.894.256-.936.333-.027.048-.008.117.037.15.045.035.092.025.119-.003.361-.39.751-.172.829-.129l.011.007c.053.024.147.028.193-.098.023-.063.017-.11-.006-.142-.016-.023-.089-.08-.247-.118Z"/>
+                        <path d="M11.727 6.719c0-.022.01-.375.01-.557 0-3.07-1.45-6.156-5.015-6.156-3.564 0-5.014 3.086-5.014 6.156 0 .182.01.535.01.557l-.72 1.795a25.85 25.85 0 0 0-.534 1.508c-.68 2.187-.46 3.093-.292 3.113.36.044 1.401-1.647 1.401-1.647 0 .979.504 2.256 1.594 3.179-.408.126-.907.319-1.228.556-.29.213-.253.43-.201.518.228.386 3.92.246 4.985.126 1.065.12 4.756.26 4.984-.126.052-.088.088-.305-.2-.518-.322-.237-.822-.43-1.23-.557 1.09-.922 1.594-2.2 1.594-3.178 0 0 1.041 1.69 1.401 1.647.168-.02.388-.926-.292-3.113a25.78 25.78 0 0 0-.534-1.508l-.72-1.795ZM9.773 5.53a.095.095 0 0 1-.009.096c-.109.159-1.554.943-3.033.943h-.017c-1.48 0-2.925-.784-3.034-.943a.098.098 0 0 1-.018-.055c0-.015.004-.028.01-.04.13-.287 1.43-.606 3.042-.606h.017c1.611 0 2.912.319 3.042.605Zm-4.32-.989c-.483.022-.896-.529-.922-1.229-.026-.7.344-1.286.828-1.308.483-.022.896.529.922 1.23.027.7-.344 1.286-.827 1.307Zm2.538 0c-.484-.022-.854-.607-.828-1.308.027-.7.44-1.25.923-1.23.483.023.853.608.827 1.309-.026.7-.439 1.251-.922 1.23ZM2.928 8.99c.213.042.426.081.639.117v2.336s1.104.222 2.21.068V9.363c.326.018.64.026.937.023h.017c1.117.013 2.474-.136 3.786-.396.097.622.151 1.386.097 2.284-.146 2.45-1.6 3.99-3.846 4.012h-.091c-2.245-.023-3.7-1.562-3.846-4.011-.054-.9 0-1.663.097-2.285Z"/>
+                    </svg>
+                    <p id="logo2">VeliTours</p>
+                </div>
+                </div>
+
+
+            <center><h1>Otras Ciudades Del Mundo</h1></center>
+
+
+            <div class="contenedorRutas">
+            <div class="ruta">
+                <img src="img/paris.png" alt="">
+                <h4>Paris</h4>
+                <p>París, la capital de Francia, es una importante ciudad europea y un centro mundial del arte, la moda, la gastronomía y la cultura.</p>
+            </div>
+
+            <div class="ruta">
+                <img src="img/tokio.png" alt="">
+                <h4>Tokio</h4>
+                <p>Tokio, la ajetreada capital de Japón, mezcla lo ultramoderno y lo tradicional, desde los rascacielos iluminados con neones hasta los templos históricos.</p>
+            </div>
+
+            <div class="ruta">
+                <img src="img/monaco.png" alt="">
+                <h4>Monaco</h4>
+                <p>Mónaco es una pequeña ciudad-estado independiente en la costa mediterránea de Francia, conocida por sus lujosos casinos, la bahía bordeada de yates y la prestigiosa carrera de automovilismo</p>
+            </div>
+        </div>
         <?php 
             include('footer/footer.php');
         ?>
-
-        <!-- <center>
-        <script src="javascript/pr.js">
-        </script> -->
     </body>
 </html>

@@ -48,6 +48,11 @@
   font-family: 'Cinzel', serif;
   margin-top: 10%;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
 </style>
 
 <header>
@@ -82,7 +87,7 @@
                                     Sesion
                                     <center>
                                         <ul class="dropdown">
-                                            <li>Iniciar Sesion</li>
+                                            <li><a href="../INICIO_SESION/registrarse.php">Crear Cuenta</a></li>
                                             <li>Crear Cuenta</li>
                                         </ul>
                                     </center>
