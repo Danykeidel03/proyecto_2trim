@@ -4,4 +4,5 @@
     $_SESSION['usuario'] = 'Pedro';
     header("Location:panel.php");
 
+    
 ?>
