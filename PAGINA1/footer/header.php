@@ -75,10 +75,12 @@ a{
 
                     <!-- Iconos mapa comunidad y rutas -->
                     <tr>
-                        <td><p>Mapa</p></td>
+                    <td><a href="http://localhost/dwes/PROYECTO_2TRI/PAGINA1/pagian_inicio.php">Inicio</a></td>
                         <td><p>Comunidad</p></td>
-                        <td><p>Rutas</p></td>
+                        <td><a href="../PAGINA_RUTAS/index.php">Rutas</a></td>
                         <td>
+
+                    <!-- Comprobar si existe el token y cuando le des a logout se borre el token -->
                     
                     <!-- Iniciar sesion -->
                         <nav>
@@ -88,7 +90,7 @@ a{
                                     <center>
                                         <ul class="dropdown">
                                             <li><a href="../INICIO_SESION/registrarse.php">Crear Cuenta</a></li>
-                                            <li>Crear Cuenta</li>
+                                            <li><a href="../INICIO_SESION/inicio.php">Iniciar Sesion</a></li>
                                         </ul>
                                     </center>
                                 </li>
