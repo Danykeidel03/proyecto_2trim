@@ -21,6 +21,8 @@ function inicio(event) {
 
     let usuario = JSON.stringify(persona);
 
+    console.log(usuario);
+
     // fetch(`http://localhost:5000/api/checkuser?username=${usu}`, {
     //     method: 'GET',
     //     headers: {
@@ -55,7 +57,7 @@ function inicio(event) {
 
         .then(response => {
             switch (response.status) {
-                case 200:
+                case 201:
                     console.log("SESION INICIADA");
                     break;
                 case 401:
@@ -71,9 +73,40 @@ function inicio(event) {
             console.log(id);
             localStorage.setItem('token', token);
             localStorage.setItem('id', id);
-
+            window.location.href = ('http://localhost/dwes/PROYECTO_2TRI/PAGINA1/pagian_inicio.php')
         })
 
+
+    //     fetch(`http://localhost/dwes/PROYECTO_2TRI/APIS/INICIO.PHP`, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json;charser=utf-8'
+    //     },
+    //     body: usuario
+    // })
+
+    //     .then(response => {
+    //         switch (response.status) {
+    //             case 201:
+    //                 console.log("SESION INICIADA");
+    //                 return response.json();
+    //                 break;
+    //             case 404:
+    //                 console.log("NO PUEDES INICIAR SESION");
+    //         }
+            
+    //     })
+
+    //     .then(data => {
+    //         console.log(data[0].id);
+    //         // let token = data.token;
+    //         let id = data[0].id;
+    //         // console.log(token);
+    //         // console.log(id);
+    //         // localStorage.setItem('token', token);
+    //         localStorage.setItem('id', id);
+    //         // window.location.href = ('http://localhost/dwes/PROYECTO_2TRI/PAGINA1/pagian_inicio.php')
+    //     })
 }
 
 

@@ -190,6 +190,31 @@ function validacion (event){
                     
                 })
 
+        //         fetch('http://localhost/dwes/PROYECTO_2TRI/APIS/api.php', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json;charser=utf-8'
+        //     },
+        //     body: usuario
+        // })
+
+        //     .then(response => {
+        //         switch (response.status) {
+        //             case 201:
+        //                 console.log("REGITRADO CON EXITO");
+        //                 return response.json();
+        //                 break;
+        //             case 400:
+        //                 console.log("ERROR");
+        //         }
+
+        //     })
+
+        //     .then(data => {
+        //         console.log(data);
+
+        //     })
+
             }
         else{
             alert('cambiar contraseña');

@@ -86,9 +86,12 @@ a{
                         <nav>
                             <ul class="main-links">
                                 <li class="dropdown-li">
-                                    Sesion
+                                    Sesión
                                     <center>
                                         <ul class="dropdown">
+                                            <?php 
+                                                
+                                            ?>
                                             <li><a href="../INICIO_SESION/registrarse.php">Crear Cuenta</a></li>
                                             <li><a href="../INICIO_SESION/inicio.php">Iniciar Sesion</a></li>
                                         </ul>

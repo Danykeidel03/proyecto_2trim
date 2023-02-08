@@ -269,9 +269,9 @@ html, body, footer, header {
 </style>
 <body>
 
-        <?php 
-            include('footer/header.php');
-        ?>
+        
+
+        <header id="encabezado"></header>
 
         <!-- Imagen de fono y al principio de la pagina -->
         <img src="img/inicio3.png" id="foto">
@@ -379,8 +379,10 @@ html, body, footer, header {
                 <p>Mónaco es una pequeña ciudad-estado independiente en la costa mediterránea de Francia, conocida por sus lujosos casinos, la bahía bordeada de yates y la prestigiosa carrera de automovilismo</p>
             </div>
         </div>
-        <?php 
-            include('footer/footer.php');
-        ?>
+
+        <footer id="footer"></footer>
+        
     </body>
+
+    <script src="footer/añadirheadersfooters.js"></script>
 </html>

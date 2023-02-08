@@ -114,7 +114,6 @@
                     <input type="password" id="pass" name="pass" placeholder="Contraseña">
                 </div>
                 <button id="crear">INICIAR SESION</button><br>
-                <button formaction="editar.php">Editar</button>
                 <button id="salir" formaction="../PAGINA1/pagian_inicio.php">VOLVER</button>
             </form>
         </div>

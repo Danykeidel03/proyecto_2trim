@@ -67,7 +67,7 @@ th{
     margin-bottom: 10px;
     margin-top: 10px;
 }
-#salir{
+#borrar{
     background-color: #ff4d4d;
     padding: 10px;
     border-radius: 20px;
@@ -118,7 +118,7 @@ th{
                     </select>
                 </div>               
                 <button id="crear">GUARDAR</button><br>
-                <button id="salir" formaction="../PAGINA1/pagian_inicio.php">ELIMINAR CUENTA</button>
+                <button id="borrar">ELIMINAR CUENTA</button>
             </form>
         </div>
     </div>
