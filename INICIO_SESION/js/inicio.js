@@ -47,40 +47,10 @@ function inicio(event) {
     //     })
 
 
-    fetch(`http://localhost:5000/api/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: usuario
-    })
-
-        .then(response => {
-            switch (response.status) {
-                case 201:
-                    console.log("SESION INICIADA");
-                    break;
-                case 401:
-                    console.log("NO PUEDES INICIAR SESION");
-            }
-            return response.json();
-        })
-
-        .then(data => {
-            let token = data.token;
-            let id = data.id;
-            console.log(token);
-            console.log(id);
-            localStorage.setItem('token', token);
-            localStorage.setItem('id', id);
-            window.location.href = ('http://localhost/dwes/PROYECTO_2TRI/PAGINA1/pagian_inicio.php')
-        })
-
-
-    //     fetch(`http://localhost/dwes/PROYECTO_2TRI/APIS/INICIO.PHP`, {
+    // fetch(`http://localhost:5000/api/login`, {
     //     method: 'POST',
     //     headers: {
-    //         'Content-Type': 'application/json;charser=utf-8'
+    //         'Content-Type': 'application/json'
     //     },
     //     body: usuario
     // })
@@ -89,24 +59,65 @@ function inicio(event) {
     //         switch (response.status) {
     //             case 201:
     //                 console.log("SESION INICIADA");
-    //                 return response.json();
     //                 break;
-    //             case 404:
+    //             case 401:
     //                 console.log("NO PUEDES INICIAR SESION");
     //         }
-            
+    //         return response.json();
     //     })
 
     //     .then(data => {
-    //         console.log(data[0].id);
-    //         // let token = data.token;
-    //         let id = data[0].id;
-    //         // console.log(token);
-    //         // console.log(id);
-    //         // localStorage.setItem('token', token);
+    //         let token = data.token;
+    //         let id = data.id;
+    //         console.log(token);
+    //         console.log(id);
+    //         localStorage.setItem('token', token);
     //         localStorage.setItem('id', id);
-    //         // window.location.href = ('http://localhost/dwes/PROYECTO_2TRI/PAGINA1/pagian_inicio.php')
+    //         window.location.href = ('http://localhost/dwes/PROYECTO_2TRI/PAGINA1/pagian_inicio.php')
     //     })
+
+
+        fetch(`http://localhost/dwes/PROYECTO_2TRI/APIS/INICIO.PHP`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charser=utf-8'
+        },
+        body: usuario
+    })
+
+        .then(response => {
+            switch (response.status) {
+                case 201:
+                    console.log("SESION INICIADA");
+                    return response.json();
+                    break;
+                    case 401:
+                        console.log("NO EXISTE EL USUARIO");
+                        break;
+                case 404:
+                    console.log("NO PUEDES INICIAR SESION");
+            }
+            
+        })
+
+        .then(data => {
+            if(data.id[0] != undefined ){
+                console.log(data);
+                // console.log(data.id[0].id);
+                // console.log(data.token);
+                let username = (data.username);
+                let token = data.token;
+                let id = data.id[0].id;
+                // console.log(token);
+                localStorage.setItem('username', username);
+                localStorage.setItem('token', token);
+                localStorage.setItem('id', id);
+                window.location.href = ('http://localhost/dwes/PROYECTO_2TRI/PAGINA1/pagian_inicio.php')
+            }else{
+                alert('uusario no existe')
+            }
+            
+        })
 }
 
 

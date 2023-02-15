@@ -32,10 +32,10 @@ function loadHeader(url) {
             cerrar.addEventListener('click', cerrarSesion)
             function cerrarSesion(event) {
                 event.preventDefault();
-                console.log('hola');
                 localStorage.removeItem('token')
                 localStorage.removeItem('id')
-                window.location.href = ('')
+                window.location.href = ('http://localhost/dwes/PROYECTO_2TRI/PAGINA1/pagian_inicio.php')
             }
         })
 }
+

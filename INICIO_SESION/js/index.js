@@ -1,8 +1,8 @@
 let btn = document.getElementById('crear')
-btn.addEventListener('click',validacion)
+btn.addEventListener('click', validacion)
 
 
-function validacion (event){
+function validacion(event) {
 
     event.preventDefault();
 
@@ -15,16 +15,16 @@ function validacion (event){
     let usu = imputUsu.value;
 
     let inputEstatura = document.querySelector('#estatura');
-    let estatura= inputEstatura.value;
+    let estatura = inputEstatura.value;
 
     let inputpeso = document.querySelector('#peso');
-    let peso= inputpeso.value;
+    let peso = inputpeso.value;
 
     let inputfecha = document.querySelector('#fecha');
-    let fecha= inputfecha.value;
+    let fecha = inputfecha.value;
 
     let inputactiv = document.querySelector('#activ');
-    let activ= inputactiv.value;
+    let activ = inputactiv.value;
 
     let contraseña = document.querySelector('#pass');
     let pass = contraseña.value;
@@ -34,32 +34,14 @@ function validacion (event){
     let pass1 = contraseña1.value;
 
     let inputMail = document.querySelector('#mail');
-    let mail= inputMail.value;
+    let mail = inputMail.value;
 
     let letras = pass.split('');
-    let numero = 0;
-    let numLetters = 0;
-    let mayusculas = 0;
-    let simbolos = 0;
+
+    console.log(letras.length);
 
 
-    letras.forEach(caracter => {
-        if(caracter >=0 || caracter <=9){
-            numero++
-        }
-        if('abcdefghijklmnñopqrstuvwxyz'.includes(caracter)){
-            numLetters++
-        }
-        if('ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.includes(caracter)){
-            mayusculas++
-        }
-        if('-.,;._¡?¿º/&%$·)(/'.includes(caracter)){
-            simbolos++
-        }
-    });
-
-
-    if(pass != pass1){
+    if (pass != pass1) {
         alert("No es la misma contraseña");
     }
     // else if (mail.includes('@') && mail.includes('.')){
@@ -71,152 +53,83 @@ function validacion (event){
     //             console.log("Muy poco segura");
     //         }
     //     }
-        else if(numero==0 && numLetters != 0 && mayusculas == 0 && simbolos == 0){
-            if(letras.length < 9){
-                console.log("inmediatly");
-            }
-            else if(letras.length > 8 && letras.length < 14 ){
-                console.log("Muy poco segura");
-            }
-            else if(letras.length > 13 && letras.length < 18 ){
-                console.log("Poco segura");
-            }
-            else{
-                console.log("Segura");
-                segura = true;
-            }
-        }
-        else if(numero==0 && numLetters != 0 && mayusculas != 0 && simbolos == 0){
-            if(letras.length < 7){
-                console.log("inmediatly");
-            }
-            else if(letras.length > 6 && letras.length < 12 ){
-                console.log("Muy poco segura");
-            }
-            else if(letras.length > 11 && letras.length < 15 ){
-                console.log("Poco segura");
-            }
-            else if(letras.length > 14 && letras.length < 18 ){
-                console.log("Segura");
-                segura = true;
-            }
-            else{
-                console.log("Muy seura");
-                segura = true;
-            }
-        }
-        else if(numero!=0 && numLetters != 0 && mayusculas != 0 && simbolos == 0){
-            if(letras.length < 7){
-                console.log("inmediatly");
-            }
-            else if(letras.length > 6 && letras.length < 11 ){
-                console.log("Muy poco segura");
-            }
-            else if(letras.length > 10 && letras.length < 14 ){
-                console.log("Poco segura");
-            }
-            else if(letras.length > 13  && letras.length < 17 ){
-                console.log("Muy Segura");
-                segura = true;
-            }
-            else{
-                console.log("Muy seura");
-                segura = true;
-            }
-        }
-        else if(numero!=0 && numLetters != 0 && mayusculas != 0 && simbolos != 0){
-            if(letras.length < 7){
-                console.log("inmediatly");
-            }
-            else if(letras.length > 6 && letras.length < 11 ){
-                console.log("Muy poco segura");
-            }
-            else if(letras.length > 10 && letras.length < 13 ){
-                console.log("Poco segura");
-            }
-            else if(letras.length > 12  && letras.length < 16 ){
-                console.log("Muy Segura");
-                segura = true;
-            }
-            else{
-                console.log("Muy seura");
-                segura = true;
-            }
-        }
-        else{
-            console.log("Muy poco segura");
+    else if (letras.length > 8 && mail.includes('@') && mail.includes('.')) {
+        segura = true;
+    }
+
+
+    if (segura == true) {
+        let persona = {
+            fullname: nombre,
+            username: usu,
+            email: mail,
+            pass: pass,
+            height: estatura,
+            weight: peso,
+            birthday: fecha,
+            activities: activ
         }
 
+        console.log(persona);
 
-        if(segura == true){
-            let persona = {
-                fullname: nombre,
-                username: usu,
-                email: mail,
-                pass: pass,
-                height: estatura,
-                weight: peso,
-                birthday: fecha,
-                activities: activ
-            }
+        let usuario = JSON.stringify(persona);
 
-            console.log(persona);
-
-            let usuario = JSON.stringify(persona);
-
-            console.log(usuario);
+        console.log(usuario);
 
 
-            fetch('http://localhost:5000/api/register',{
-                method : 'POST',
-                headers: {
-                    'Content-Type' : 'application/json'
-                },
-                body: usuario})
-
-                .then (response => {
-                        switch (response.status){
-                            case 200:
-                                console.log("REGITRADO CON EXITO");
-                                break;
-                            case 400:
-                                console.log("ERROR");
-                        }
-                        return response.json();
-                    })
-
-                .then ( data => {
-                    console.log(data);
-                    
-                })
-
-        //         fetch('http://localhost/dwes/PROYECTO_2TRI/APIS/api.php', {
-        //     method: 'POST',
+        // fetch('http://localhost:5000/api/register',{
+        //     method : 'POST',
         //     headers: {
-        //         'Content-Type': 'application/json;charser=utf-8'
+        //         'Content-Type' : 'application/json'
         //     },
-        //     body: usuario
-        // })
+        //     body: usuario})
 
-        //     .then(response => {
-        //         switch (response.status) {
-        //             case 201:
-        //                 console.log("REGITRADO CON EXITO");
-        //                 return response.json();
-        //                 break;
-        //             case 400:
-        //                 console.log("ERROR");
-        //         }
+        //     .then (response => {
+        //             switch (response.status){
+        //                 case 200:
+        //                     console.log("REGITRADO CON EXITO");
+        //                     break;
+        //                 case 400:
+        //                     console.log("ERROR");
+        //             }
+        //             return response.json();
+        //         })
 
-        //     })
-
-        //     .then(data => {
+        //     .then ( data => {
         //         console.log(data);
 
         //     })
 
-            }
-        else{
-            alert('cambiar contraseña');
-        }
+        fetch('http://localhost/dwes/PROYECTO_2TRI/APIS/api.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charser=utf-8'
+            },
+            body: usuario
+        })
+
+            .then(response => {
+                switch (response.status) {
+                    case 201:
+                        console.log("REGITRADO CON EXITO");
+                        break;
+                        case 409:
+                        console.log("USUARIO EXISTE");
+                        break;
+                    case 400:
+                        console.log("ERROR");
+                }
+                return response.json();
+
+            })
+
+            .then(data => {
+                console.log(data);
+
+            })
+
+    }
+    else {
+        alert('cambiar contraseña o el correo');
+    }
 }

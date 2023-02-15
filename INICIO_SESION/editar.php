@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,104 +11,105 @@
 </head>
 
 <style>
-body{
-    /* background: linear-gradient(97deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 14%, rgba(151,193,233,1) 36%);  */
-    background-image: url("imgs/fondo3.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center bottom;
-    background-color: greenyellow;
-}
-#sesion{
-    width: 600px;
-    height: 600px;
-   border: 1px black solid;
-    /* centrar vertical y horizontalmente */
-    margin-top: 9%;
-    margin-left: auto;
-	margin-right: auto;
-    border-radius: 25px;
-    background-color: white;
-}
+    body {
+        /* background: linear-gradient(97deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 14%, rgba(151,193,233,1) 36%);  */
+        background-image: url("imgs/fondo3.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center bottom;
+        background-color: greenyellow;
+    }
+
+    #sesion {
+        width: 600px;
+        height: 500px;
+        border: 1px black solid;
+        /* centrar vertical y horizontalmente */
+        margin-top: 12%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 25px;
+        background-color: white;
+    }
 
 
 
-#titulo{
-    text-align: center;
-    top: 30px;
-    position: relative;
-    
-}
+    #titulo {
+        text-align: center;
+        top: 30px;
+        position: relative;
 
-#form{
-    text-align: center;
-    top: 30px;
-    position: relative;
-}
+    }
 
-input, select{
-    border: black solid 0px;
-    border-bottom: 1px black solid;
-    width: 400px;
-    text-align: left;
-}
+    #form {
+        text-align: center;
+        top: 30px;
+        position: relative;
+    }
 
-input:focus{
-    outline: none;
-}
-th{
-    text-align: left;
-}
-#crear{
-    background-color: greenyellow;
-    padding: 10px;
-    border-radius: 20px;
-    width: 400px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-#borrar{
-    background-color: #ff4d4d;
-    padding: 10px;
-    border-radius: 20px;
-    width: 400px;
-}
+    input,
+    select {
+        border: black solid 0px;
+        border-bottom: 1px black solid;
+        width: 400px;
+        text-align: left;
+    }
 
-#tx{
-    padding: 10px;
-}
+    input:focus {
+        outline: none;
+    }
+
+    th {
+        text-align: left;
+    }
+
+    #crear {
+        background-color: greenyellow;
+        padding: 10px;
+        border-radius: 20px;
+        width: 400px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    #borrar {
+        background-color: #ff4d4d;
+        padding: 10px;
+        border-radius: 20px;
+        width: 400px;
+    }
+
+    #tx {
+        padding: 10px;
+    }
 </style>
 
 <body>
-    
+
     <div id="sesion">
         <div id="titulo">
-            <h1 >EDITAR PERFIL</h1>
+            <h1>EDITAR PERFIL</h1>
             <hr>
         </div>
         <div id="form">
-        <form >
+            <form>
                 <div id="tx">
-                        <!-- <label for="nombre">Nombre Completo:</label> -->
-                        <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo">
+                    <!-- <label for="nombre">Nombre Completo:</label> -->
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo">
                 </div>
                 <div id="tx">
-                        <!-- <label for="usu">Usuario:</label> -->
-                        <input type="text" id="usu" name="usu"  placeholder="Usuario">
+                    <!-- <label for="estatura">Estatura En Cm:</label> -->
+                    <input type="number" id="estatura" name="estatura" min="100" max="220" placeholder="Altura En Cm">
                 </div>
                 <div id="tx">
-                        <!-- <label for="estatura">Estatura En Cm:</label> -->
-                        <input type="number" id="estatura" name="estatura" min="100" max="220" placeholder="Altura En Cm">
+                    <!-- <label for="peso">Peso En Kg:</label> -->
+                    <input type="number" id="peso" name="peso" min="40" max="240" placeholder="Peso En kG">
                 </div>
                 <div id="tx">
-                        <!-- <label for="peso">Peso En Kg:</label> -->
-                        <input type="number" id="peso" name="peso" min="40" max="240" placeholder="Peso En kG">
+                    <!-- <label for="fecha">Fecha Nacimiento:</label> -->
+                    <input type="date" id="fecha" name="fecha" placeholder="Fecha De Nacimiento">
                 </div>
-                <div id="tx">
-                        <!-- <label for="fecha">Fecha Nacimiento:</label> -->
-                        <input type="date" id="fecha" name="fecha"  placeholder="Fecha De Nacimiento">
-                </div>   
                 <div id="tx">
                     <select id="activ">
                         <option value="otras">Otras</option>
@@ -116,7 +118,7 @@ th{
                         <option value="correr">Correr</option>
                         <option value="andar">Andar</option>
                     </select>
-                </div>               
+                </div>
                 <button id="crear">GUARDAR</button><br>
                 <button id="borrar">ELIMINAR CUENTA</button>
             </form>
@@ -125,4 +127,5 @@ th{
 
     <script src="js/edit.js"></script>
 </body>
+
 </html>

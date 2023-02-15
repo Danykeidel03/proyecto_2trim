@@ -28,8 +28,11 @@ function inicio() {
     let imputDist1 = document.querySelector('#dist1');
     let dist1 = imputDist1.value;
 
-    fetch(`http://localhost:5000/api/route?name=${nombre}&min_dist=${dist}&max_dist=${dist1}`, {
-
+    fetch(`http://localhost/dwes/PROYECTO_2TRI/APIS/rutas.php?name=${nombre}&min_dist=${dist}&max_dist=${dist1}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
     })
 
         .then(response => {
@@ -48,28 +51,57 @@ function inicio() {
             let divRutas = document.getElementById('rutas')
             let str = "";
             data.forEach(element => {
+                let id = element.id
                 let nombre = element.route_name;
                 let distancia = element.distance
                 let max_height = element.max_height;
                 let min_height = element.min_height;
+                let latitud = element.start_lat;
+                let longitud = element.start_lon;
+                let descripcion = element.descripcion;
+                let points = element.points;
                 str += `
                 <div id='routes'>
-                    <div id='fotoRuta'>Foto</div>
+                    <div id='map${id}' class='map'></div>
                     <div id='nameRuta'><h4>${nombre}</h4></div>
                     <div id='infoRuta'>
                         <div id='dist'><a>Distancia:  </a><a id='dat'>${distancia}</a></div>
                         <div id='max'><a>Altura Maxima:  </a><a id='dat'>${max_height}</a></div>
                         <div id='min'><a>Altura Minima:  </a><a id='dat'>${min_height}</a></div>
+                        <form action='http://localhost/dwes/PROYECTO_2TRI/PAGINA_RUTAS/info.php'>
+                            <div id='min'><button>Info Ruta</button></div>
+                            <input id="nombre" name="nombre" type="hidden" value="${nombre}">
+                            <input id="max_height" name="max_height" type="hidden" value="${max_height}">
+                            <input id="min_height" name="min_height" type="hidden" value="${min_height}">
+                            <input id="distancia" name="distancia" type="hidden" value="${distancia}">
+                            <input id="nombre" name="nombre" type="hidden" value="${nombre}">
+                            <input id="latitud" name="latitud" type="hidden" value="${latitud}">
+                            <input id="longitud" name="longitud" type="hidden" value="${longitud}">
+                            <input id="descripcion" name="descripcion" type="hidden" value="${descripcion}">
+                            <input id="points" name="points" type="hidden" value="${points}">
+                        </form>
                     </div>
                 </div>
                 `
             });
             divRutas.innerHTML = str
+            data.forEach(element => { 
+                let id = element.id
+                let latitud = element.start_lat;
+                let longitud = element.start_lon;
+                let map = L.map(`map${id}`, { zoomControl: false }).setView([latitud, longitud], 12);
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+                var marker = L.marker([latitud, longitud]).addTo(map);
+            })
+                
+            
+            
         })
 
+
 }
-
-
-
 
 

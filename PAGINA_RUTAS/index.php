@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 </head>
 
 <style>
@@ -91,12 +92,15 @@
         transform: translateY(-10px);
     }
 
-    #fotoRuta {
+    .map {
         grid-column: 3 / 4;
         grid-row: 1/3;
         text-align: center;
-        background-color: grey;
+        /* background-color: grey; */
         border-radius: 5px;
+        height: 100%;
+        width: 100%;
+        
 
     }
 
@@ -126,6 +130,9 @@
         text-align: left;
     }
 
+    #añadirRuta {
+        float: right
+    }
 </style>
 
 <body>
@@ -142,13 +149,19 @@
         </div>
 
         <h1>RUTAS</h1>
+        <div id="añadirRuta"></div>
+
 
         <div id="form">
+
             <form>
                 <input type="text" id="name" name="name" placeholder="Nombre Ruta">
-                <input type="number" id="dist" name="dist" placeholder="Distancia Minima">
-                <input type="number" id="dist1" name="dist1" placeholder="Distancia Maxima">
+                <input type="number" id="dist" name="dist" min="0" value="0" placeholder="Distancia Minima">
+                <input type="number" id="dist1" name="dist1" min="0" value="10000000" placeholder="Distancia Maxima">
             </form>
+
+
+
         </div>
         <hr>
 
@@ -162,5 +175,14 @@
 
 <script src="index.js"></script>
 <script src="http://localhost/dwes/PROYECTO_2TRI/PAGINA1/footer/añadirheadersfooters.js"></script>
+<script>
+    if (localStorage.getItem('token')) {
+        let crearRuta = document.getElementById('añadirRuta');
+        crearRuta.innerHTML = `<a href='http://localhost/dwes/PROYECTO_2TRI/PAGINA_RUTAS/insertar.php'>AÑADIR RUTA</a>`;
+    }
+</script>
+<!-- <script>
+    var map = L.map('map').setView([51.505, -0.09], 13);
+</script> -->
 
 </html>

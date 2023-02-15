@@ -18,6 +18,11 @@
         text-align: center;
     }
 
+    #tab1 a {
+        width: 150px;
+        text-align: center;
+    }
+
     .dropdown-li {
         position: relative;
         font-size: 15px;
@@ -54,6 +59,7 @@
     a {
         text-decoration: none;
         color: black;
+        padding: 20px;
     }
     #cerrar:hover{
         cursor: pointer;
@@ -82,7 +88,10 @@
                     <tr>
                         <td><a href="http://localhost/dwes/PROYECTO_2TRI/PAGINA1/pagian_inicio.php">Inicio</a></td>
                         <td>
-                            <p>Comunidad</p>
+                            <a href="../PAGINA_RUTAS/index1.php">Tuyo</a>
+                        </td>
+                        <td>
+                            <a href="../PAGINA_RUTAS/insertar.php">Añadir</a>
                         </td>
                         <td><a href="../PAGINA_RUTAS/index.php">Rutas</a></td>
                         <td>

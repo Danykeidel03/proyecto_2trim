@@ -53,6 +53,9 @@ a{
     text-decoration: none;
     color: black;
 }
+#rut{
+    margin-left: 40px;
+}
 </style>
 
 <header>
@@ -76,8 +79,7 @@ a{
                     <!-- Iconos mapa comunidad y rutas -->
                     <tr>
                     <td><a href="http://localhost/dwes/PROYECTO_2TRI/PAGINA1/pagian_inicio.php">Inicio</a></td>
-                        <td><p>Comunidad</p></td>
-                        <td><a href="../PAGINA_RUTAS/index.php">Rutas</a></td>
+                        <td><a href="../PAGINA_RUTAS/index.php" id="rut">Rutas</a></td>
                         <td>
 
                     <!-- Comprobar si existe el token y cuando le des a logout se borre el token -->
