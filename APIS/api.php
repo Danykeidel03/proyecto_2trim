@@ -25,11 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $weight = $user->weight;
         $birthday = $user->birthday;
         $activities = $user->activities;
-        // $pass = hash("sha512",$pass);
+        $password_hash = password_hash($pass, PASSWORD_BCRYPT);
 
         //CONSULTA
 
-        $sql = "INSERT INTO users (fullname, username, email, pass, height, weight, birthday, activities) VALUES('$fullname', '$username', '$email', '$pass', '$height', '$weight', '$birthday', '$activities')";
+        $sql = "INSERT INTO users (fullname, username, email, pass, height, weight, birthday, activities) VALUES('$fullname', '$username', '$email', '$password_hash', '$height', '$weight', '$birthday', '$activities')";
 
         //CONSULTA PARA COMPROBAR QUE EXISTE
         $sql2 = "SELECT * FROM users WHERE username = '$username'";

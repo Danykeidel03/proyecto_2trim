@@ -18,27 +18,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //RECOJO LOS PARAMETROS Y HAGO LA CONSULTA
         $username = $user->username;
         $pass = $user->pass;
-        $sql = "SELECT id FROM `users` WHERE username like '{$username}' and pass like '{$pass}'";
+        $sql = "SELECT id,username,pass FROM `users` WHERE username like '{$username}'";
 
 
         try {
-            // HAGO LAS VARIABLES DEL JWT Y LO CODIFICO
-            $key = 'example_key';
-            $payload = [
-                'username' => $username,
-                'id' => $sql,
-            ];
-            $jwt = JWT::encode($payload, $key, 'HS256');
             $result = $db->query($sql);
+            $row = $result->fetch_assoc();
 
-            //MANDO EN USERNAME , ID Y TOKEN
-            $alumnos = [
-                "id" => $result->fetch_all(MYSQLI_ASSOC),
-                "token" => $jwt,
-                "username" => $username
-            ];
-            header("HTTP/1.1 201 Created");
-            echo json_encode($alumnos);
+            $pass2 = $row['pass'];
+            if (password_verify($pass, $pass2)) {
+                // HAGO LAS VARIABLES DEL JWT Y LO CODIFICO
+                $key = 'example_key';
+                $payload = [
+                    'username' => $username,
+                    'id' => $sql,
+                ];
+                $jwt = JWT::encode($payload, $key, 'HS256');
+                $result = $db->query($sql);
+
+                //MANDO EN USERNAME , ID Y TOKEN
+                $alumnos = [
+                    "id" => $result->fetch_all(MYSQLI_ASSOC),
+                    "token" => $jwt,
+                    "username" => $username
+                ];
+                header("HTTP/1.1 201 Created");
+                echo json_encode($alumnos);
+            }
         } catch (mysqli_sql_exception $e) {
             header("HTTP/1.1 404 Not Found");
         }
