@@ -82,8 +82,6 @@
                 <label for="descText">Descripción</label>
                 <textarea name="descText" id="descText" cols="30" rows="5"></textarea>
             </div>
-
-
             <input type="submit" id="submit" value="Submit" />
         </form>
     </div>
@@ -105,8 +103,8 @@
             let json = parser.tracks[0]
             // console.log(json);
 
-            // Reducimos el número de puntos a aproximadamente 300
-            let ratio = Math.round(json.points.length / 300);
+            // Reducimos el número de puntos a aproximadamente 50
+            let ratio = Math.round(json.points.length / 50);
             let points = json.points.filter((_, index) => index % ratio == 0);
             let slopes = json.slopes.filter((_, index) => index % ratio == 0);
             let nombreImput = document.getElementById('nameInput')

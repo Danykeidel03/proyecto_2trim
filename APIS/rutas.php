@@ -62,8 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $descripcion = $ruta->descripcion;
         $id = $ruta -> id;
 
-        // echo ($points);
-
         //CONSULTA
 
         $sql = "INSERT INTO `rutas` (`route_name`, `distance`, `max_height`, `min_height`, `pos_slope`, `neg_slope`, `start_lat`, `start_lon`, `descripcion`, `user`,`points`) VALUES ('$nombre', ' $distancia', '$max_height', '$min_height', '$pos_slope', '$neg_slope', '$start_lat', '$start_lon', '$descripcion', '$id','$points'); ";
