@@ -70,15 +70,7 @@ function inicio() {
                         <div id='min'><a>Altura Minima:  </a><a id='dat'>${min_height}</a></div>
                         <form action='http://localhost/dwes/PROYECTO_2TRI/PAGINA_RUTAS/info.php'>
                             <div id='min'><button>Info Ruta</button></div>
-                            <input id="nombre" name="nombre" type="hidden" value="${nombre}">
-                            <input id="max_height" name="max_height" type="hidden" value="${max_height}">
-                            <input id="min_height" name="min_height" type="hidden" value="${min_height}">
-                            <input id="distancia" name="distancia" type="hidden" value="${distancia}">
-                            <input id="nombre" name="nombre" type="hidden" value="${nombre}">
-                            <input id="latitud" name="latitud" type="hidden" value="${latitud}">
-                            <input id="longitud" name="longitud" type="hidden" value="${longitud}">
-                            <input id="descripcion" name="descripcion" type="hidden" value="${descripcion}">
-                            <input id="points" name="points" type="hidden" value="${points}">
+                            <input id="id" name="id" type="hidden" value="${id}">
                         </form>
                     </div>
                 </div>

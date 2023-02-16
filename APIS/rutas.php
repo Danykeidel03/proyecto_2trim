@@ -9,7 +9,7 @@ $db = new Conexion();
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     //HAGO LA CONSULTA
-    $sql = "SELECT id,route_name,distance,max_height,min_height,start_lat,start_lon,descripcion FROM rutas WHERE 1 ";
+    $sql = "SELECT id,route_name,distance,max_height,min_height,start_lat,start_lon,descripcion,points FROM rutas WHERE 1 ";
 
     try {
 

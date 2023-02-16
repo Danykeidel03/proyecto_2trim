@@ -10,12 +10,22 @@
     <title>Document</title>
 </head>
 <style>
+    p,
+    h1,
+    h4,
+    h3,
+    a ,#encabezado,#footer{
+        font-family: 'Cinzel', serif;
+        /* font: sans-serif; */
+
+    }
+
     #fondo {
         width: 1000px;
-        height: 800px;
+        height: 683px;
         border: 1px black solid;
         /* centrar vertical y horizontalmente */
-        margin-top: 4%;
+        margin-top: 1%;
         margin-left: auto;
         margin-right: auto;
         /* border-radius: 25px; */
@@ -34,20 +44,38 @@
     h1 {
         margin-left: 10px;
     }
+
+    body,html {
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+    }
 </style>
 
 <body>
-
+    <header id="encabezado"></header>
     <?php
-    if ($_GET["nombre"]) {
-        $nombre = $_GET["nombre"];
-        $distancia = $_GET["distancia"];
-        $max_height = $_GET["max_height"];
-        $min_height = $_GET["min_height"];
-        $latitud = $_GET["latitud"];
-        $longitud = $_GET["longitud"];
-        $descripcion = $_GET["descripcion"];
-        $points = $_GET["points"];
+    echo "<hr>";
+    include_once('funciones.php');
+
+    if (isset($_GET["id"])) {
+        $ruta = obtenerRuta($_GET["id"]);
+
+        $nombre = $ruta['route_name'];
+        $distancia = $ruta["distance"];
+        $max_height = $ruta["max_height"];
+        $min_height = $ruta["min_height"];
+        $latitud = $ruta["start_lat"];
+        $longitud = $ruta["start_lon"];
+        $descripcion = $ruta["descripcion"];
+        $points = $ruta["points"];
+        $replace1 = str_replace('"lat":', '',  $points);
+        $replace2 = str_replace('"lon":', '', $replace1);
+        $replace3 = str_replace('[', '', $replace2);
+        $replace4 = str_replace(']', '', $replace3);
+        $replace5 = str_replace('{', '[', $replace4);
+        $replace6 = str_replace('}', ']', $replace5);
         echo "
             <div id='fondo'>
             <div id='map'></div>
@@ -60,24 +88,31 @@
                     <p>Latitud en el Mapa:: $latitud</p>
                     <p>Londitud en el Mapa: $longitud</p>
                     <p>Descripcion: $descripcion</p>
-                    <p>Puntos: $points</p>
                     <a href='http://localhost/dwes/PROYECTO_2TRI/PAGINA_RUTAS/index.php'>VOLVER</a>
                 </div>
             </div>
         ";
         echo "
             <script>
-            var map = L.map('map').setView([$latitud,  $longitud], 13);
+            var map = L.map('map').setView([$latitud,  $longitud], 12);
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href=`http://www.openstreetmap.org/copyright`>OpenStreetMap</a>'
             }).addTo(map);
             var marker = L.marker([$latitud,  $longitud]).addTo(map);
             marker.bindPopup('<b>Ruta: </b> $nombre <br><b>Latitud: </b>$latitud <br><b>Longitud: </b>$longitud').openPopup();
+            L.polyline([$replace6], {
+                color: 'red',
+                weight: 2,
+            }).addTo(map);
             </script> 
         ";
     }
-
+    echo "<br><br><br>";
     ?>
+    <footer id="footer"></footer>
+
 </body>
+<script src="http://localhost/dwes/PROYECTO_2TRI/PAGINA1/footer/añadirheadersfooters.js"></script>
+
 </html>

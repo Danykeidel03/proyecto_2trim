@@ -64,6 +64,7 @@
     #cerrar:hover{
         cursor: pointer;
     }
+    
 </style>
 
 <header>

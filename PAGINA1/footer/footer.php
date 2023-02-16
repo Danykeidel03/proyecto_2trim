@@ -32,6 +32,7 @@
    td{
     width: 550px;
    }
+   
 </style>
 
 <footer>
